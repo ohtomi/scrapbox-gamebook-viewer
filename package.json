@@ -1,7 +1,6 @@
 {
   "name": "svelte-app",
   "version": "1.0.0",
-  "private": true,
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
@@ -16,26 +15,9 @@
     "test:watch": "run-s test -- --watch",
     "validate": "svelte-check"
   },
-  "jest": {
-    "transform": {
-      "^.+\\.js$": "babel-jest",
-      "^.+\\.ts$": "ts-jest",
-      "^.+\\.svelte$": [
-        "svelte-jester",
-        {
-          "preprocess": true
-        }
-      ]
-    },
-    "moduleFileExtensions": [
-      "js",
-      "ts",
-      "svelte"
-    ]
+  "dependencies": {
+    "sirv-cli": "^1.0.0"
   },
-  "setupFilesAfterEnv": [
-    "@testing-library/jest-dom/extend-expect"
-  ],
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
@@ -71,7 +53,25 @@
     "tslib": "^2.0.0",
     "typescript": "^4.0.0"
   },
-  "dependencies": {
-    "sirv-cli": "^1.0.0"
-  }
+  "private": true,
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.ts$": "ts-jest",
+      "^.+\\.svelte$": [
+        "svelte-jester",
+        {
+          "preprocess": true
+        }
+      ]
+    },
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "svelte"
+    ]
+  },
+  "setupFilesAfterEnv": [
+    "@testing-library/jest-dom/extend-expect"
+  ]
 }
