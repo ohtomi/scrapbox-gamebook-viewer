@@ -1,10 +1,19 @@
 {
-  "name": "svelte-app",
+  "name": "scrapbox-gamebook-viewer",
   "version": "1.0.0",
+  "keywords": [
+    "Svelte",
+    "TypeScript",
+    "Scrapbox",
+    "Gamebook"
+  ],
+  "license": "MIT",
+  "author": "Kenichi Ohtomi",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear",
+    "validate": "svelte-check",
     "lint": "run-p lint:*",
     "lint:eslint": "eslint src --ext .ts",
     "lint:prettier": "prettier src --check",
@@ -12,8 +21,7 @@
     "fix:eslint": "run-s lint:eslint -- --fix",
     "fix:prettier": "run-s lint:prettier -- --write",
     "test": "jest src",
-    "test:watch": "run-s test -- --watch",
-    "validate": "svelte-check"
+    "test:watch": "run-s test -- --watch"
   },
   "dependencies": {
     "sirv-cli": "^1.0.0"
