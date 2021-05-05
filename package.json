@@ -1,6 +1,7 @@
 {
   "name": "scrapbox-gamebook-viewer",
   "version": "1.0.0",
+  "description": "The viewer app of Gamebooks on Scrapbox",
   "keywords": [
     "Svelte",
     "TypeScript",
