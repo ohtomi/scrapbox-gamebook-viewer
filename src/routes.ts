@@ -1,7 +1,7 @@
-import Index from './pages/Index.svelte'
-import Play from './pages/Play.svelte'
+import Home from './pages/Home.svelte'
+import Viewer from './pages/Viewer.svelte'
 
 export const routes = {
-  '/': Index,
-  '/play': Play
+  '/': Home,
+  '/view': Viewer
 }
