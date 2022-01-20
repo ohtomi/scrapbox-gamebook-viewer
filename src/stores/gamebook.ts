@@ -160,7 +160,7 @@ function traverseNode(node: Node): ParagraphLine[] {
     return [traverseQuoteNode(node as QuoteNode)]
   }
   if (node.type === 'helpfeel') {
-    return traverseHelpfeelNode(node as HelpfeelNode)
+    return [traverseHelpfeelNode(node as HelpfeelNode)]
   }
   if (node.type === 'strongImage') {
     return [traverseStrongImageNode(node as StrongImageNode)]
@@ -204,10 +204,6 @@ function traverseNode(node: Node): ParagraphLine[] {
   if (node.type === 'plain') {
     return [traversePlainNode(node as PlainNode)]
   }
-  return [{
-    value: node.raw,
-    crlf: false
-  }]
 }
 
 function traverseQuoteNode(node: QuoteNode): ParagraphLine {
