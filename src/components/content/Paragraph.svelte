@@ -6,7 +6,7 @@
 {#each $gamebook.current.paragraphs as paragraph}
   {#if !paragraph.hide}
     <p>
-      <ParagraphLine lines={paragraph.lines} />
+      <ParagraphLine on:goto lines={paragraph.lines} />
     </p>
   {/if}
 {/each}

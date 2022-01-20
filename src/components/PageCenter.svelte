@@ -9,7 +9,7 @@
   {:else}
     <div>
       <h1>{$gamebook.current.title}</h1>
-      <Paragraph />
+      <Paragraph on:goto />
     </div>
   {/if}
   {#if $isError}
