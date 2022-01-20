@@ -1,21 +1,22 @@
 <script lang="ts">
-  import { projectLocation, isReady } from '../stores/project'
+  import { link } from 'svelte-spa-router'
+  import { isReady, project } from '../stores/project'
 
-  const goOnClicked = () => {
-    console.log(new Date())
-  }
+  let projectLocation = ''
+
+  $: project.changeLocation(projectLocation)
 </script>
 
 <main>
   <h1>Scrapbox Gamebook</h1>
-  <h3>Scrapbox Gamebook の URL（もしくは、プロジェクト名/ページ名）を入力してください</h3>
+  <h2>Scrapbox Gamebook のプロジェクト名とページ名を入力してください</h2>
   <p>
     <input
       type="text"
-      bind:value={$projectLocation}
-      placeholder="URL | Scrapbox プロジェクト名/ページ名"
+      bind:value={projectLocation}
+      placeholder="Scrapbox プロジェクト名/ページ名"
     />
-    <button on:click={goOnClicked} disabled={!$isReady}>Go!</button>
+    <a href="/play" use:link><button disabled={!$isReady}>Go!</button></a>
   </p>
 </main>
 <footer>
@@ -37,6 +38,7 @@
     padding: 1em;
     max-width: 70vw;
     margin: 0 auto;
+    background-color: whitesmoke;
   }
 
   footer {

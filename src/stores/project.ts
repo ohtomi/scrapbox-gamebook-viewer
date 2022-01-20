@@ -1,28 +1,37 @@
 import { derived, writable } from 'svelte/store'
 
-export const projectLocation = writable('')
+interface Project {
+  name: string
+  topPage: string
+}
 
-export const startPage = derived(projectLocation, ($url, set) => {
-  if ($url.startsWith('https://')) {
-    if ($url.length <= 'https://'.length) {
-      set('')
-      return
-    }
-    set($url)
-  } else {
-    const tokens = $url.split('/')
-    if (tokens.length != 2) {
-      set('')
-      return
-    }
-    if (!tokens[0] || !tokens[1]) {
-      set('')
-      return
-    }
-    set(`https://scrapbox.io/${tokens[0]}/${tokens[1]}`)
+function newProject() {
+  const { subscribe, update } = writable(defaultProject())
+
+  return {
+    subscribe,
+    changeLocation: (location: string) => update(state => changeLocation(state, location))
   }
-}, '')
+}
 
-export const isReady = derived(startPage, ($startPage, set) => {
-  set(!!$startPage)
-}, false)
+function defaultProject(): Project {
+  return {
+    name: '',
+    topPage: ''
+  }
+}
+
+function changeLocation(state: Project, location: string): Project {
+  const tokens = location.split('/')
+  if (tokens.length != 2) {
+    return state
+  }
+  return {
+    name: tokens[0],
+    topPage: tokens[1]
+  }
+}
+
+export const project = newProject()
+
+export const isReady = derived(project, state => !!state.name && !!state.topPage, false)
