@@ -1,45 +1,6 @@
 import { BlankNode, CodeNode, CommandLineNode, DecorationNode, FormulaNode, getTitle, GoogleMapNode, HashTagNode, HelpfeelNode, IconNode, ImageNode, Line, LinkNode, Node, Page, parse, PlainNode, QuoteNode, StrongIconNode, StrongImageNode, StrongNode } from "@progfay/scrapbox-parser"
 import { derived, writable } from 'svelte/store'
 
-interface Gamebook {
-  current?: Content
-  parsed?: Page
-  raw?: string
-}
-
-interface Content {
-  title: string
-  paragraphs: Paragraph[]
-}
-
-interface Paragraph {
-  lines: ParagraphLine[]
-  hide?: boolean
-}
-
-type ParagraphLine = Quote | Image | BlankSpace | Link | PlainText
-
-interface Quote {
-  citations: ParagraphLine[]
-}
-
-interface Image {
-  imageSource: string
-}
-
-interface BlankSpace {
-  space: string
-}
-
-interface Link {
-  nextPage: string
-}
-
-interface PlainText {
-  value: string
-  crlf: boolean
-}
-
 function newGamebook() {
   const { subscribe, set, update } = writable(defaultGamebook())
 
