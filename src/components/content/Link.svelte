@@ -17,3 +17,10 @@
 </script>
 
 <a href="{href}" on:click|preventDefault|stopPropagation={() => onClickNextPage(line.nextPage)}>{line.nextPage}</a>
+
+<style>
+  a {
+    color: rgb(0,100,200);
+    text-decoration: none;
+  }
+</style>
