@@ -1,35 +1,20 @@
 <script lang="ts">
-  import { link } from 'svelte-spa-router'
-  import { isReady, project } from '../stores/project'
+  import Heading from '../components/home/Heading.svelte'
+  import ProjectLocation from '../components/home/ProjectLocation.svelte'
+  import Disclaimer from '../components/home/Disclaimer.svelte'
+  import { project } from '../stores/project'
 
-  let projectLocation = ''
-
-  $: project.changeLocation(projectLocation)
+  function onChangeProjectLocation(e: CustomEvent<ChangeProjectLocationEvent>) {
+    project.changeLocation(e.detail.location)
+  }
 </script>
 
 <main>
-  <h1>Scrapbox Gamebook</h1>
-  <h2>Scrapbox Gamebook のプロジェクト名とページ名を入力してください</h2>
-  <p>
-    <input
-      type="text"
-      bind:value={projectLocation}
-      placeholder="Scrapbox プロジェクト名/ページ名"
-    />
-    <a href="/view" use:link><button disabled={!$isReady}>Go!</button></a>
-  </p>
+  <Heading />
+  <ProjectLocation on:changeprojectlocation={onChangeProjectLocation} />
 </main>
 <footer>
-  <div>
-    このウェブサイトは Gamebook をホストしていません。
-    <a href="https://scrapbox.io">Scrapbox</a> で記述された Gamebook を遊べます。
-  </div>
-  <div>
-    <a href="https://vercel.com/">Vercel</a>
-  </div>
-  <div>
-    <a href="https://github.com/ohtomi/scrapbox-gamebook-viewer">GitHub</a>
-  </div>
+  <Disclaimer />
 </footer>
 
 <style>
@@ -42,7 +27,6 @@
 
     background-color: whitesmoke;
   }
-
   footer {
     padding: 1em;
     width: 100vw;
@@ -50,39 +34,5 @@
 
     color: floralwhite;
     background-color: darkgrey;
-  }
-
-  h1 {
-    color: #ff3e00;
-    font-size: 4em;
-    font-weight: 100;
-  }
-
-  input {
-    width: 60vw;
-  }
-
-  input,
-  button {
-    padding: 0.4em;
-    -webkit-padding: 0.4em 0;
-    margin: 0 0 0.5em 0;
-
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-
-    font-family: inherit;
-    font-size: inherit;
-  }
-
-  button {
-    color: #333;
-    background-color: #f4f4f4;
-    outline: none;
-  }
-
-  button:disabled {
-    color: #999;
   }
 </style>
