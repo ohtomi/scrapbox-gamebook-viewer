@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte'
+  import { createEventDispatcher, onMount } from 'svelte'
   import { link } from 'svelte-spa-router'
   import { isReady } from '../../stores/project'
 
@@ -7,12 +7,16 @@
 
   let location: string = ''
 
-  $: {
+  function changeProjectLocation(newLocation: string) {
     const e = {
-      location,
+      location: newLocation,
     } as ChangeProjectLocationEvent
     dispatch('changeprojectlocation', e)
   }
+
+  $: changeProjectLocation(location)
+
+  onMount(() => changeProjectLocation(location))
 </script>
 
 <h2>Scrapbox Gamebook のプロジェクト名とページ名を入力してください</h2>

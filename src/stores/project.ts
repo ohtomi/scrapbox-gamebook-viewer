@@ -24,7 +24,7 @@ function defaultProject(): Project {
 function changeLocation(state: Project, location: string): Project {
   const tokens = location.split('/')
   if (tokens.length != 2) {
-    return state
+    return defaultProject()
   }
   return {
     name: tokens[0],
