@@ -1,9 +1,11 @@
-<h1>Scrapbox Gamebook</h1>
+<h1>Scrapbox Gamebook Viewer</h1>
 
 <style>
   h1 {
-    color: #ff3e00;
-    font-size: 4em;
-    font-weight: 100;
+    font-size: 2em;
+    font-weight: 400;
+    line-height: 42px;
+
+    color: darkred;
   }
 </style>

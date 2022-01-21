@@ -4,6 +4,5 @@
   .page-side {
     max-width: 120px;
     width: 120px;
-    background-color: aqua;
   }
 </style>

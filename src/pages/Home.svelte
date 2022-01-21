@@ -19,20 +19,35 @@
 
 <style>
   main {
-    text-align: center;
-
-    padding: 1em;
     max-width: 70vw;
-    margin: 0 auto;
+    height: 100vh;
+  }
 
+  main {
+    margin: 0 auto;
+    padding: 1em;
+  }
+
+  main {
+    text-align: center;
     background-color: whitesmoke;
   }
-  footer {
-    padding: 1em;
-    width: 100vw;
-    margin: 0 auto;
 
+  footer {
+    width: 100vw;
+  }
+
+  footer {
+    z-index: 1000;
+    position: fixed;
+    bottom: 0;
+
+    margin: 0 auto;
+    padding: 0.5em;
+  }
+
+  footer {
     color: floralwhite;
-    background-color: darkgrey;
+    background-color: gray;
   }
 </style>

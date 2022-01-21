@@ -19,11 +19,11 @@
   onMount(() => changeProjectLocation(location))
 </script>
 
-<h2>Scrapbox Gamebook のプロジェクト名とページ名を入力してください</h2>
+<h2>Scrapboxのプロジェクト名とページ名を入力してください</h2>
 <p>
   <input
     type="text"
-    placeholder="Scrapbox プロジェクト名/ページ名"
+    placeholder="プロジェクト名/ページ名"
     bind:value={location}
   />
   <a href="/view" use:link>
@@ -32,28 +32,40 @@
 </p>
 
 <style>
+  h2 {
+    font-size: 1.2em;
+    font-weight: 300;
+    line-height: 42px;
+
+    color: darkred;
+  }
+
   input {
-    width: 60vw;
+    min-width: 300px;
+    width: 20vw;
   }
 
   input,
   button {
+    margin: 0 0 0.5em 0;
     padding: 0.4em;
     -webkit-padding: 0.4em 0;
-    margin: 0 0 0.5em 0;
 
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 2px;
+  }
 
+  input,
+  button {
     font-family: inherit;
     font-size: inherit;
   }
 
   button {
-    color: #333;
-    background-color: #f4f4f4;
     outline: none;
+    color: #333;
+    background-color: whitesmoke;
   }
 
   button:disabled {
@@ -61,7 +73,6 @@
   }
 
   a {
-    color: rgb(0, 100, 200);
     text-decoration: none;
   }
 </style>

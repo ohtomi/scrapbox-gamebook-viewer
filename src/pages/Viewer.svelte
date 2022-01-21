@@ -37,6 +37,6 @@
 
 <style>
   .app {
-    background-color: thistle;
+    padding-top: 60px;
   }
 </style>

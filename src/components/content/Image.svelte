@@ -6,6 +6,6 @@
 
 <style>
   img {
-    max-width: 65vw;
+    max-width: 944px;
   }
 </style>
